@@ -1070,5 +1070,15 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 159098087}
+    - target: {fileID: 8436491361368739437, guid: 1b80854978271594dbaa6c6b42e70b81,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436491361368739437, guid: 1b80854978271594dbaa6c6b42e70b81,
+        type: 3}
+      propertyPath: fireAmountPerSecondFromCauldron
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b80854978271594dbaa6c6b42e70b81, type: 3}

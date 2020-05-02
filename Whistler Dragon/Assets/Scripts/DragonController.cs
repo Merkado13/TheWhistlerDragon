@@ -5,6 +5,9 @@ using UnityEngine;
 public class DragonController : MonoBehaviour
 {
     [SerializeField]
+    private bool debug = false;
+
+    [SerializeField]
     private float rotationSpeed;
 
     [SerializeField]
@@ -23,6 +26,11 @@ public class DragonController : MonoBehaviour
     [SerializeField]
     private GUIController controller;
 
+    [SerializeField]
+    private float fireAmountPerSecondFromCauldron = 10;
+
+    private float raycastMaxDistance = 10;
+
     private void Awake()
     {
         controls = GetComponent<IInputedControls>();
@@ -39,6 +47,7 @@ public class DragonController : MonoBehaviour
     {
         transform.rotation = controls.GetPlayerRotation(transform.rotation, rotationSpeed * Time.deltaTime);
         ShootFireBall();
+        RechargeFireFromCaldron();
     }
 
     private void ShootFireBall()
@@ -67,7 +76,7 @@ public class DragonController : MonoBehaviour
 
     private bool hasFireToShot()
     {
-        return currentFireAmount > 0;
+        return currentFireAmount >= fireCostPerFireBall;
     }
 
 
@@ -75,5 +84,31 @@ public class DragonController : MonoBehaviour
     {
         currentFireAmount = Mathf.Clamp(currentFireAmount + offset, 0, MAX_FIRE);
         controller.UpdateFireBar(currentFireAmount/MAX_FIRE);
+    }
+
+    private void RechargeFireFromCaldron()
+    {
+        if (isLookingAtCauldron())
+        {
+            UpdateFireAmount(fireAmountPerSecondFromCauldron * Time.deltaTime);
+        }
+    }
+
+    private bool isLookingAtCauldron()
+    {
+        bool isLooking = false;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastMaxDistance))
+        {
+            if (hit.transform.name == "Cauldron")
+            {
+                isLooking = true;
+            }
+        }
+
+        if(debug)
+            Debug.DrawRay(transform.position, transform.forward * raycastMaxDistance, Color.yellow);
+
+        return isLooking;
     }
 }
