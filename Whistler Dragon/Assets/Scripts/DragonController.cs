@@ -14,11 +14,14 @@ public class DragonController : MonoBehaviour
     private float fireballsPerSecond = 1;
     private float lastTimeShoot = 0;
 
-    private float maxAmountFire = 100.0f;
+    private const float MAX_FIRE = 100.0f;
     private float currentFireAmount = 100.0f;
 
     [SerializeField]
     private float fireCostPerFireBall = 5;
+
+    [SerializeField]
+    private GUIController controller;
 
     private void Awake()
     {
@@ -44,7 +47,8 @@ public class DragonController : MonoBehaviour
         {
             if (canShoot() && hasFireToShot()){
                 ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation);
-                currentFireAmount -= fireCostPerFireBall;
+                UpdateFireAmount(-fireCostPerFireBall);
+         
             }
         }
     }
@@ -64,5 +68,12 @@ public class DragonController : MonoBehaviour
     private bool hasFireToShot()
     {
         return currentFireAmount > 0;
+    }
+
+
+    private void UpdateFireAmount(float offset)
+    {
+        currentFireAmount = Mathf.Clamp(currentFireAmount + offset, 0, MAX_FIRE);
+        controller.UpdateFireBar(currentFireAmount/MAX_FIRE);
     }
 }
