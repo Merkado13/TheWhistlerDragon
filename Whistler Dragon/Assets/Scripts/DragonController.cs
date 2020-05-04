@@ -29,7 +29,20 @@ public class DragonController : MonoBehaviour
     [SerializeField]
     private float fireAmountPerSecondFromCauldron = 10;
 
+    [SerializeField]
+    private Transform knightsSpawn1;
+    [SerializeField]
+    private Transform knightsSpawn2;
+    [SerializeField]
+    private Transform knightsSpawn3;
+    private Transform spawn; 
+    private float knightsPerSec = 0.7f;
+    private float lastTimeSpawn = 0;
+
+
     private float raycastMaxDistance = 10;
+
+    
 
     private void Awake()
     {
@@ -47,6 +60,7 @@ public class DragonController : MonoBehaviour
     {
         transform.rotation = controls.GetPlayerRotation(transform.rotation, rotationSpeed * Time.deltaTime);
         ShootFireBall();
+        spawnKnights();
         RechargeFireFromCaldron();
     }
 
@@ -110,5 +124,42 @@ public class DragonController : MonoBehaviour
             Debug.DrawRay(transform.position, transform.forward * raycastMaxDistance, Color.yellow);
 
         return isLooking;
+    }
+
+
+    private bool canSpawn()
+    {
+        float currentTime = Time.time;
+        if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
+        {
+            lastTimeSpawn = currentTime;
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+    private void spawnKnights() {
+
+        if (canSpawn())
+        {
+            int rand = (int) Random.Range(0, 3);
+            switch (rand) {
+                case 0:
+                    spawn = knightsSpawn1;
+                    break;
+                case 1:
+                    spawn = knightsSpawn2;
+                    break;
+                case 2:
+                    spawn = knightsSpawn3;
+                    break;
+            }
+
+            ObjectPooler.Instance.SpawnFromPool("knight", spawn.position, spawn.rotation);
+        }
+
     }
 }
