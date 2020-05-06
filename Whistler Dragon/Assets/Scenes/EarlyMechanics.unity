@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireBar: {fileID: 1300740536}
+  micSlider: {fileID: 1027874514}
 --- !u!4 &159098088
 Transform:
   m_ObjectHideFlags: 0
@@ -1333,7 +1334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6bc4209d2f4b140acae1b612a47adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedDevice: 
+  MicLoudness: 0
+  MicLoudnessinDecibels: 0
+  controller: {fileID: 159098087}
 --- !u!82 &1167862905
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2087,5 +2090,10 @@ PrefabInstance:
       propertyPath: knightsSpawn3
       value: 
       objectReference: {fileID: 636753845}
+    - target: {fileID: 363015004845494656, guid: 1b80854978271594dbaa6c6b42e70b81,
+        type: 3}
+      propertyPath: micInput
+      value: 
+      objectReference: {fileID: 1167862904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b80854978271594dbaa6c6b42e70b81, type: 3}
