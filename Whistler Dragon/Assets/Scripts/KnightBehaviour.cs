@@ -23,6 +23,7 @@ public class KnightBehaviour : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.LookAt(target);
 
     }
 

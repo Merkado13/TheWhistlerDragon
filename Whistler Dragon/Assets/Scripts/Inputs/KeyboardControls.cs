@@ -7,6 +7,7 @@ public class KeyboardControls : MonoBehaviour, IInputedControls
     [SerializeField]
     private MicrophoneInput micInput;
 
+    [SerializeField]
     public bool usingMic = true;
 
     private const float MIC_TREESHOLD_DB = -50;
