@@ -60,7 +60,7 @@ public class KnightSpawner : MonoBehaviour
                     break;
             }
 
-            ObjectPooler.Instance.SpawnFromPool("knight", spawn.position, spawn.rotation);
+            ObjectPooler.Instance.SpawnFromPool("knight", spawn.position, spawn.rotation, new Vector3(1, 1, 1));
         }
 
     }

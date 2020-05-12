@@ -8,9 +8,9 @@ public class MicrophoneInput : MonoBehaviour
 
     public float MicLoudness;
     public float MicLoudnessinDecibels;
-
+    public int Frequency;
     private string _device;
-    
+
     [SerializeField]
     private GUIController controller;
 
@@ -33,7 +33,7 @@ public class MicrophoneInput : MonoBehaviour
 
 
     AudioClip _clipRecord;
-    AudioClip _recordedClip;
+    public AudioClip _recordedClip;
     int _sampleWindow = 128;
 
     //get data from microphone into audioclip
@@ -64,7 +64,7 @@ public class MicrophoneInput : MonoBehaviour
 
         return db;
     }
-
+    
     public float FloatLinearOfClip(AudioClip clip)
     {
         StopMicrophone();
@@ -73,7 +73,7 @@ public class MicrophoneInput : MonoBehaviour
 
         float levelMax = 0;
         float[] waveData = new float[_recordedClip.samples];
-
+        
         _recordedClip.GetData(waveData, 0);
         // Getting a peak on the last 128 samples
         for (int i = 0; i < _recordedClip.samples; i++)
@@ -106,13 +106,13 @@ public class MicrophoneInput : MonoBehaviour
                 levelMax = wavePeak;
             }
         }
-
+        Frequency = _recordedClip.frequency;
+       
         float db = 20 * Mathf.Log10(Mathf.Abs(levelMax));
 
         return db;
     }
-
-
+  
 
     void Update()
     {
@@ -120,6 +120,8 @@ public class MicrophoneInput : MonoBehaviour
         // pass the value to a static var so we can access it from anywhere
         MicLoudness = MicrophoneLevelMax();
         MicLoudnessinDecibels = MicrophoneLevelMaxDecibels();
+       // Frequency = _recordedClip.frequency;
+        Debug.Log("1 FRECUENCIA:" + Frequency);
         controller.UpdateMicSlider(MicLoudness);
     }
 

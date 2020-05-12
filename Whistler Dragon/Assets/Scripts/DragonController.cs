@@ -29,6 +29,8 @@ public class DragonController : MonoBehaviour
     [SerializeField]
     private float fireAmountPerSecondFromCauldron = 10;
 
+    private MicrophoneInput micro = new MicrophoneInput();
+
 
 
     private float raycastMaxDistance = 10;
@@ -59,7 +61,24 @@ public class DragonController : MonoBehaviour
         if (controls.isShotInputActivated())
         {
             if (canShoot() && hasFireToShot()){
-                ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation);
+
+                // A single whistle blow ranges from 500 to 5000 Hz
+                float size;
+                int frequency = micro.Frequency;
+                if (frequency < 1000)
+                {
+                    size = 0.01f;
+                }
+                else if (frequency > 4000)
+                {
+                    size = 2;
+                }
+                else
+                {
+                    size = ((frequency * 200) / 4000) / 100; // Trust me i'm a scientist (no)
+                }
+                Debug.Log("FRECUENCIA:" + frequency);
+                ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
                 UpdateFireAmount(-fireCostPerFireBall);
          
             }
