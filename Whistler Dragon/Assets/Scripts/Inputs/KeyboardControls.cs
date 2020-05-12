@@ -10,7 +10,7 @@ public class KeyboardControls : MonoBehaviour, IInputedControls
     [SerializeField]
     public bool usingMic = true;
 
-    private const float MIC_TREESHOLD_DB = -50;
+    private const float MIC_TREESHOLD_DB = -80;
 
     public Quaternion GetPlayerRotation(Quaternion rotation, float rotationSpeed)
     {

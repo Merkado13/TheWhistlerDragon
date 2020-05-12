@@ -3,8 +3,9 @@
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: ResonanceAudioMixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
@@ -18,18 +19,21 @@ AudioMixerController:
   m_AudioMixerGroupViews:
   - guids:
     - c799ec8bc7f394c3faaa686b0c2f3f40
+    - 5cd1e28f1f634f3448ecbf5adc9256b5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c799ec8bc7f394c3faaa686b0c2f3f40
-  m_Children: []
+  m_Children:
+  - {fileID: 243505881656753466}
   m_Volume: 76dd6ada92654467da2044ca5eb97484
   m_Pitch: f6e7ed6a2ec9849df837cb64b6ec8240
   m_Effects:
@@ -42,8 +46,9 @@ AudioMixerGroupController:
 --- !u!244 &24400004
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_EffectID: 9412d7f6841db4014b7ef1e25ba35dac
   m_EffectName: Attenuation
@@ -55,18 +60,54 @@ AudioMixerEffectController:
 --- !u!245 &24500006
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 7d121094476bd4ea2a9cc9ac388299f4
-  m_FloatValues: {}
+  m_FloatValues:
+    dd166040ea3e07144a8ccf27c2383a8e: -80
+    76dd6ada92654467da2044ca5eb97484: 0
   m_TransitionOverrides: {}
+--- !u!243 &243505881656753466
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 5cd1e28f1f634f3448ecbf5adc9256b5
+  m_Children: []
+  m_Volume: dd166040ea3e07144a8ccf27c2383a8e
+  m_Pitch: 91cb82941ffc50c4eb731cecf62ccc8e
+  m_Effects:
+  - {fileID: 244165227141224810}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &244165227141224810
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3fe740d18cba108468b0a63f8e3788fc
+  m_EffectName: Attenuation
+  m_MixLevel: 5332c4e56e9421d46ba64467dd36ab0b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244255876635463380
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_EffectID: 4e654e689a5c045319baafd4927386c5
   m_EffectName: Resonance Audio Renderer

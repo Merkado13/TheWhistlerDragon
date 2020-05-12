@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MicrophoneInput : MonoBehaviour
 {
@@ -11,8 +12,19 @@ public class MicrophoneInput : MonoBehaviour
     public int Frequency;
     private string _device;
 
+    AudioClip _clipRecord;
+    public AudioClip _recordedClip;
+    int _sampleWindow = 128;
+
     [SerializeField]
     private GUIController controller;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     //mic initialization
     public void InitMic()
@@ -21,7 +33,9 @@ public class MicrophoneInput : MonoBehaviour
         {
             _device = Microphone.devices[0];
         }
-        _clipRecord = Microphone.Start(_device, true, 999, 44100);
+        _clipRecord = Microphone.Start(_device, true, 10, 44100);
+        audioSource.clip = _clipRecord;
+        audioSource.Play();
         _isInitialized = true;
     }
 
@@ -30,11 +44,6 @@ public class MicrophoneInput : MonoBehaviour
         Microphone.End(_device);
         _isInitialized = false;
     }
-
-
-    AudioClip _clipRecord;
-    public AudioClip _recordedClip;
-    int _sampleWindow = 128;
 
     //get data from microphone into audioclip
     float MicrophoneLevelMax()
@@ -56,6 +65,13 @@ public class MicrophoneInput : MonoBehaviour
         return levelMax;
     }
 
+    float getMicrophoneFrecuency()
+    {
+        float f = 0.0f;
+
+        return f;
+    }
+
     //get data from microphone into audioclip
     float MicrophoneLevelMaxDecibels()
     {
@@ -64,55 +80,7 @@ public class MicrophoneInput : MonoBehaviour
 
         return db;
     }
-    
-    public float FloatLinearOfClip(AudioClip clip)
-    {
-        StopMicrophone();
 
-        _recordedClip = clip;
-
-        float levelMax = 0;
-        float[] waveData = new float[_recordedClip.samples];
-        
-        _recordedClip.GetData(waveData, 0);
-        // Getting a peak on the last 128 samples
-        for (int i = 0; i < _recordedClip.samples; i++)
-        {
-            float wavePeak = waveData[i] * waveData[i];
-            if (levelMax < wavePeak)
-            {
-                levelMax = wavePeak;
-            }
-        }
-        return levelMax;
-    }
-
-    public float DecibelsOfClip(AudioClip clip)
-    {
-        StopMicrophone();
-
-        _recordedClip = clip;
-
-        float levelMax = 0;
-        float[] waveData = new float[_recordedClip.samples];
-
-        _recordedClip.GetData(waveData, 0);
-        // Getting a peak on the last 128 samples
-        for (int i = 0; i < _recordedClip.samples; i++)
-        {
-            float wavePeak = waveData[i] * waveData[i];
-            if (levelMax < wavePeak)
-            {
-                levelMax = wavePeak;
-            }
-        }
-        Frequency = _recordedClip.frequency;
-       
-        float db = 20 * Mathf.Log10(Mathf.Abs(levelMax));
-
-        return db;
-    }
-  
 
     void Update()
     {
@@ -120,8 +88,8 @@ public class MicrophoneInput : MonoBehaviour
         // pass the value to a static var so we can access it from anywhere
         MicLoudness = MicrophoneLevelMax();
         MicLoudnessinDecibels = MicrophoneLevelMaxDecibels();
+        //DecibelsOfClip(_clipRecord);
        // Frequency = _recordedClip.frequency;
-        Debug.Log("1 FRECUENCIA:" + Frequency);
         controller.UpdateMicSlider(MicLoudness);
     }
 
