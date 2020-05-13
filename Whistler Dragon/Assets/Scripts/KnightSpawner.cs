@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class KnightSpawner : MonoBehaviour
 {
-
     [SerializeField]
-    private Transform knightsSpawn1;
-    [SerializeField]
-    private Transform knightsSpawn2;
-    [SerializeField]
-    private Transform knightsSpawn3;
+    public List<Transform> transforms;
+   
     private Transform spawn;
     private float knightsPerSec = 0.7f;
     private float lastTimeSpawn = 0;
@@ -46,21 +42,29 @@ public class KnightSpawner : MonoBehaviour
 
         if (canSpawn())
         {
-            int rand = (int)Random.Range(0, 3);
-            switch (rand)
-            {
+            int rand = (int)Random.Range(0, 6);
+            spawn = transforms[rand];
+            string knight;
+            int rand2 = (int)Random.Range(0, 4);
+            switch (rand2) {
+
                 case 0:
-                    spawn = knightsSpawn1;
+                    knight = "knight4";
                     break;
                 case 1:
-                    spawn = knightsSpawn2;
+                    knight = "knight2";
                     break;
                 case 2:
-                    spawn = knightsSpawn3;
+                    knight = "knight3";
                     break;
+                default:
+                    knight = "knight";
+                    break;        
+          
             }
 
-            ObjectPooler.Instance.SpawnFromPool("knight", spawn.position, spawn.rotation, new Vector3(1, 1, 1));
+
+            ObjectPooler.Instance.SpawnFromPool(knight, spawn.position, spawn.rotation, new Vector3(1, 1, 1));
         }
 
     }
