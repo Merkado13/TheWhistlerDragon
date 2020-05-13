@@ -57,31 +57,40 @@ public class DragonController : MonoBehaviour
     {
         if (controls.isShotInputActivated())
         {
-            if (canShoot() && hasFireToShot()){
+
+            int frequency = micro.frequency;
+
+            if (canShoot() && hasFireToShot())
+            {
 
                 // A single whistle blow ranges from 500 to 5000 Hz
-                /*float size;
-                int frequency = micro.Frequency;
-                if (frequency < 1000)
-                {
-                    size = 0.01f;
-                }
-                else if (frequency > 4000)
-                {
-                    size = 2;
+                float size;
+                if (frequency != 0) { 
+                    if (frequency < 2000)
+                    {
+                        size = 2f;
+                    }
+                    else
+                    {
+                        size = 0.41f;
+                    }
                 }
                 else
                 {
-                    size = ((frequency * 200) / 4000) / 100; // Trust me i'm a scientist (no)
+                     size = 0.41f;
                 }
-                Debug.Log("FRECUENCIA:" + frequency);*/
+                /*else
+                {
+                    size = ((frequency * 200) / 4000) / 100; // Trust me i'm a scientist (no)
+                }*/
 
                 
-
-                ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(0.41f, 0.41f, 0.41f));
+                ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
                 UpdateFireAmount(-fireCostPerFireBall);
          
             }
+
+            Debug.Log("FRECUENCIA:" + frequency);
         }
     }
 

@@ -9,7 +9,7 @@ public class MicrophoneInput : MonoBehaviour
 
     public float MicLoudness;
     public float MicLoudnessinDecibels;
-    public int Frequency;
+    public int frequency;
     private string _device;
 
     AudioClip _clipRecord;
@@ -20,6 +20,9 @@ public class MicrophoneInput : MonoBehaviour
     private GUIController controller;
 
     private AudioSource audioSource;
+
+    //8 bandas de frecuencia
+    private float[] frequencyBands = new float[8];
 
     private void Awake()
     {
@@ -67,9 +70,56 @@ public class MicrophoneInput : MonoBehaviour
 
     float getMicrophoneFrecuency()
     {
-        float f = 0.0f;
+        int windowF = 512;
+        float[] spectrum = new float[windowF];
 
-        return f;
+        int micPosition = Microphone.GetPosition(null) - (windowF + 1);
+
+        int init = Mathf.Max(0, micPosition);
+
+        audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+
+        float maxV = 0;
+        int maxN = 0;
+        for (int i = 0; i < windowF; i++)
+        {
+            if (!(spectrum[i] > maxV) || !(spectrum[i] > 0.0f))
+                continue;
+
+            maxV = spectrum[i];
+            maxN = i;
+
+        }
+
+        float freqN = maxN;
+        if (maxN > 0 && maxN < windowF - 1)
+        {
+            var dL = spectrum[maxN - 1] / spectrum[maxN];
+            var dR = spectrum[maxN + 1] / spectrum[maxN];
+            freqN += 0.5f * (dR * dR - dL * dL);
+
+
+        }
+        float pitchValue = freqN * (44100) / windowF;
+
+        return pitchValue;
+    }
+
+    void generateFrequencyBands()
+    {
+        for(int i = 0; i < frequencyBands.Length; i++)
+        {
+            int sampleCount = (int)Mathf.Pow(2, i) * 2;
+            if(i == 7)
+            {
+                sampleCount += 2;
+            }
+
+            for(int j = 0; j < sampleCount; j++)
+            {
+
+            }
+        }
     }
 
     //get data from microphone into audioclip
@@ -89,7 +139,8 @@ public class MicrophoneInput : MonoBehaviour
         MicLoudness = MicrophoneLevelMax();
         MicLoudnessinDecibels = MicrophoneLevelMaxDecibels();
         //DecibelsOfClip(_clipRecord);
-       // Frequency = _recordedClip.frequency;
+        // Frequency = _recordedClip.frequency;
+        frequency = (int)getMicrophoneFrecuency();
         controller.UpdateMicSlider(MicLoudness);
     }
 

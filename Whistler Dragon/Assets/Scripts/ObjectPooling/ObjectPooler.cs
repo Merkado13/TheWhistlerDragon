@@ -56,7 +56,7 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
         Vector3 scale = objectToSpawn.transform.localScale;
-        objectToSpawn.transform.localScale = new Vector3(scale.x*size.x, scale.y*size.y, scale.z*size.z);
+        objectToSpawn.transform.localScale = size;
         IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
         
         if(pooledObj != null)
