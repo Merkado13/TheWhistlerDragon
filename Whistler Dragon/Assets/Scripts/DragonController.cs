@@ -51,6 +51,8 @@ public class DragonController : MonoBehaviour
         transform.rotation = controls.GetPlayerRotation(transform.rotation, rotationSpeed * Time.deltaTime);
         ShootFireBall();
         RechargeFireFromCaldron();
+        Vector3 rotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(0, rotation.y, 0);
     }
 
     private void ShootFireBall()
@@ -90,7 +92,7 @@ public class DragonController : MonoBehaviour
          
             }
 
-            Debug.Log("FRECUENCIA:" + frequency);
+            //Debug.Log("FRECUENCIA:" + frequency);
         }
     }
 
@@ -135,11 +137,14 @@ public class DragonController : MonoBehaviour
             if (hit.transform.name == "Cauldron")
             {
                 isLooking = true;
+                Debug.Log("Is looking at couldron");
             }
         }
 
         if(debug)
             Debug.DrawRay(transform.position, transform.forward * raycastMaxDistance, Color.yellow);
+
+        
 
         return isLooking;
     }
