@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7775919222208767065}
-  m_LocalRotation: {x: -0.06287903, y: -0.0013441964, z: -0.007525465, w: 0.9979919}
-  m_LocalPosition: {x: -0.01, y: 0.36, z: 2.27}
+  m_LocalRotation: {x: -0.11568772, y: 0.010161241, z: -0.026446624, w: 0.99288154}
+  m_LocalPosition: {x: -0.009, y: 0.505, z: 2.241}
   m_LocalScale: {x: 0.18506005, y: 0.15400912, z: 3.6420903}
   m_Children: []
   m_Father: {fileID: 7775919224021213627}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -7.2110004, y: -0.1, z: -0.85800004}
+  m_LocalEulerAnglesHint: {x: -13.249001, y: 1.5480001, z: -3.2310002}
 --- !u!33 &7775919222208767070
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7775919224021213575}
-  m_LocalRotation: {x: -0.05655109, y: 0.044857487, z: -0.009711251, w: 0.99734426}
+  m_LocalRotation: {x: 0.097883835, y: 0.04581844, z: -0.0026795445, w: 0.99413896}
   m_LocalPosition: {x: -0.12203949, y: 0.32, z: 0.18814576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -113,7 +113,7 @@ Transform:
   - {fileID: 4100373244050522169}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -6.4270005, y: 5.23, z: -1.4100001}
+  m_LocalEulerAnglesHint: {x: 11.237, y: 5.2990003, z: 0.21300001}
 --- !u!33 &7775919224021213572
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -190,9 +190,7 @@ MonoBehaviour:
   fireCostPerFireBall: 5
   controller: {fileID: 0}
   fireAmountPerSecondFromCauldron: 10
-  knightsSpawn1: {fileID: 0}
-  knightsSpawn2: {fileID: 0}
-  knightsSpawn3: {fileID: 0}
+  micro: {fileID: 0}
 --- !u!114 &363015004845494656
 MonoBehaviour:
   m_ObjectHideFlags: 0

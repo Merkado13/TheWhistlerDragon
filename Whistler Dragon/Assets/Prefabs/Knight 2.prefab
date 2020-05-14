@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784494060036474262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.633062, y: 1.02, z: 14.877062}
-  m_LocalScale: {x: 0.61787444, y: 1.1648391, z: 0.58404154}
+  m_LocalPosition: {x: 0, y: 0.609, z: 5.61}
+  m_LocalScale: {x: 0.86836076, y: 1.6370649, z: 0.820812}
   m_Children:
   - {fileID: 3939836510277067531}
   m_Father: {fileID: 0}
@@ -255,6 +255,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5017466538225985651}
     m_Modifications:
+    - target: {fileID: 7914589932886894213, guid: 7db894142f505ac4bb12e7da80daa21e,
+        type: 3}
+      propertyPath: m_Name
+      value: footman_Yellow_HP
+      objectReference: {fileID: 0}
     - target: {fileID: 125269814812267426, guid: 7db894142f505ac4bb12e7da80daa21e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,11 +329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1630851
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914589932886894213, guid: 7db894142f505ac4bb12e7da80daa21e,
-        type: 3}
-      propertyPath: m_Name
-      value: footman_Yellow_HP
       objectReference: {fileID: 0}
     - target: {fileID: 1372677690451201472, guid: 7db894142f505ac4bb12e7da80daa21e,
         type: 3}
