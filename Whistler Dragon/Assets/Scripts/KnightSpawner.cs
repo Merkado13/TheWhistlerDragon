@@ -8,7 +8,8 @@ public class KnightSpawner : MonoBehaviour
     public List<Transform> transforms;
    
     private Transform spawn;
-    private float knightsPerSec = 0.7f;
+    [SerializeField]
+    private float knightsPerSec = 0.6f;
     private float lastTimeSpawn = 0;
 
     // Start is called before the first frame update

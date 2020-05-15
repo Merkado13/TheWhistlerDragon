@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.18506005, y: 0.15400912, z: 3.6420903}
   m_Children: []
   m_Father: {fileID: 7775919224021213627}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -13.249001, y: 1.5480001, z: -3.2310002}
 --- !u!33 &7775919222208767070
 MeshFilter:
@@ -109,8 +109,8 @@ Transform:
   m_LocalPosition: {x: -0.12203949, y: 0.32, z: 0.18814576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7775919222208767064}
   - {fileID: 4100373244050522169}
+  - {fileID: 7775919222208767064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 11.237, y: 5.2990003, z: 0.21300001}
@@ -212,10 +212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7775919224021213627}
     m_Modifications:
-    - target: {fileID: 1195647057899334, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
-      propertyPath: m_Name
-      value: micro_dragon_fino_dead
-      objectReference: {fileID: 0}
     - target: {fileID: 4148805631954130, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.010184167
@@ -246,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148805631954130, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148805631954130, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -260,6 +256,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.2160001
       objectReference: {fileID: 0}
+    - target: {fileID: 1195647057899334, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
+      propertyPath: m_Name
+      value: micro_dragon_fino_dead
+      objectReference: {fileID: 0}
+    - target: {fileID: 95663664949127058, guid: 875cd5c9e16248846820065ae551ba2b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 176ea3d57fc44ca43b12ace303d2eaf8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875cd5c9e16248846820065ae551ba2b, type: 3}
 --- !u!4 &4100373244050522169 stripped

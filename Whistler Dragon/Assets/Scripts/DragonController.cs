@@ -34,15 +34,19 @@ public class DragonController : MonoBehaviour
 
     private float raycastMaxDistance = 10;
 
+    Animator anim; 
+
+
     private void Awake()
     {
         controls = GetComponent<IInputedControls>();
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -67,7 +71,8 @@ public class DragonController : MonoBehaviour
 
                 // A single whistle blow ranges from 500 to 5000 Hz
                 float size;
-                if (frequency != 0) { 
+                if (frequency != 0)
+                {
                     if (frequency < 2000)
                     {
                         size = 2f;
@@ -76,21 +81,26 @@ public class DragonController : MonoBehaviour
                     {
                         size = 0.41f;
                     }
+                    anim.SetBool("firing", true);
                 }
                 else
                 {
-                     size = 0.41f;
+                    size = 0.41f;
+                    anim.SetBool("firing", false);
                 }
                 /*else
                 {
                     size = ((frequency * 200) / 4000) / 100; // Trust me i'm a scientist (no)
                 }*/
 
-                
+
                 ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
                 UpdateFireAmount(-fireCostPerFireBall);
-         
+                
+                
+
             }
+            
 
             //Debug.Log("FRECUENCIA:" + frequency);
         }
@@ -104,7 +114,7 @@ public class DragonController : MonoBehaviour
             lastTimeShoot = currentTime;
             return true;
         }
-
+        
         return false;
     }
 
@@ -125,6 +135,10 @@ public class DragonController : MonoBehaviour
         if (isLookingAtCauldron())
         {
             UpdateFireAmount(fireAmountPerSecondFromCauldron * Time.deltaTime);
+            anim.SetBool("recharging", true);
+        }
+        else {
+            anim.SetBool("recharging", false);
         }
     }
 
@@ -137,7 +151,7 @@ public class DragonController : MonoBehaviour
             if (hit.transform.name == "Cauldron")
             {
                 isLooking = true;
-                Debug.Log("Is looking at couldron");
+                //Debug.Log("Is looking at couldron");
             }
         }
 
