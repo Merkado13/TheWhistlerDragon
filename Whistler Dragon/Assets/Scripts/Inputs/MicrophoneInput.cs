@@ -141,7 +141,8 @@ public class MicrophoneInput : MonoBehaviour
         //DecibelsOfClip(_clipRecord);
         // Frequency = _recordedClip.frequency;
         frequency = (int)getMicrophoneFrecuency();
-        controller.UpdateMicSlider(MicLoudness);
+        if(controller)
+            controller.UpdateMicSlider(MicLoudness);
     }
 
     bool _isInitialized;
