@@ -11,6 +11,8 @@ public class KnightSpawner : MonoBehaviour
     [SerializeField]
     private float knightsPerSec = 0.6f;
     private float lastTimeSpawn = 0;
+    [SerializeField]
+    GUIController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,11 @@ public class KnightSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnKnights();
+        if (controller.playing == true)
+        {
+            SpawnKnights();
+        }
+        
     }
 
     private bool canSpawn()

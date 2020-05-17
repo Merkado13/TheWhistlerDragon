@@ -113,6 +113,7 @@ MonoBehaviour:
   target: {fileID: 7005879294936306183, guid: 84122dd2c5a0c0b4db452ce024dcf798, type: 3}
   fireball: {fileID: 3344211665710828698, guid: c225d6d62e1c1fc4a83e20cfd05e0e79,
     type: 3}
+  controller: {fileID: 0}
 --- !u!54 &5998246974312853514
 Rigidbody:
   m_ObjectHideFlags: 0

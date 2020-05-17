@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class KnightBehaviour : MonoBehaviour
+public class KnightBehaviour : MonoBehaviour, IPooledObject
 {
 
     public float speed = 1.0f;
@@ -12,6 +13,10 @@ public class KnightBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject fireball;
 
+    GUIController controller;
+
+
+
     bool keepGoing = true;
     float keepAlive = 3;
     float alive = 0;
@@ -20,19 +25,25 @@ public class KnightBehaviour : MonoBehaviour
     float deadTime = 0;
     float death = 0.5f; 
 
-    Animator animator;    
+    Animator animator;
+    GameObject GUIC;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (controller.playing == false)
+        {
+            this.gameObject.SetActive(false);
+        }
         if (keepGoing)
         {
             float step = speed * Time.deltaTime;
@@ -79,11 +90,17 @@ public class KnightBehaviour : MonoBehaviour
             keepGoing = false;
             int random = (int)Random.Range(0, 3);
             animator.SetInteger("attack", random);
-            //this.gameObject.SetActive(false);            
+            //this.gameObject.SetActive(false);
+            controller.UpdateGold(100);
 
         }
 
     }
-    
 
+    public void OnObjectSpawn()
+    {
+        GUIC = GameObject.Find("GUIController");
+        controller = GUIC.GetComponent<GUIController>();
+
+    }
 }
