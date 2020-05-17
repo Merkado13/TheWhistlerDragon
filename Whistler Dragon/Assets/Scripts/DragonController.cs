@@ -70,14 +70,14 @@ public class DragonController : MonoBehaviour
             {
 
                 // A single whistle blow ranges from 500 to 5000 Hz
-                float size;
+                float size = 0.41f;
                 if (frequency != 0)
                 {
-                    if (frequency < 2000)
+                    if (micro.isLowPitched())
                     {
                         size = 2f;
                     }
-                    else
+                    else if(micro.isHighPitched())
                     {
                         size = 0.41f;
                     }

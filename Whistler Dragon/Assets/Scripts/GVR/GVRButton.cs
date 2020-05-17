@@ -21,36 +21,73 @@ public class GVRButton : MonoBehaviour
     private bool isBeingActivated = false;
     private float currentLoading = 0.0f;
 
+    private bool alreadyActivated = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (isBeingActivated)
+
+        if (isGazeInteractive)
         {
-            currentLoading += Time.deltaTime;
-            if(currentLoading >= timeNeeded)
+            if (isBeingActivated)
             {
-                GVRClick.Invoke();
+                upLoad();          
             }
-        }
-        else if(currentLoading > 0)
-        {
-            currentLoading -= Time.deltaTime * loadDownSpeed;
+            else if (currentLoading > 0)
+            {
+                downLoad();
+            }
         }
 
         currentLoading = Mathf.Clamp(currentLoading, 0.0f, timeNeeded);
-
         imgLoaded.fillAmount = currentLoading/timeNeeded;
+    }
+
+    public void upLoad()
+    {
+        //isBeingActivated = true;
+        currentLoading += Time.deltaTime;
+        if (currentLoading >= timeNeeded && !alreadyActivated)
+        {
+            alreadyActivated = true;
+            GVRClick.Invoke();
+        }
+    }
+
+    public void downLoad()
+    {
+        currentLoading -= Time.deltaTime * loadDownSpeed;
+        if(currentLoading/timeNeeded < 0.75f)
+        {
+            alreadyActivated = false;
+        }
     }
 
     public void GVROnEnter()
     {
-        isBeingActivated = true;
-        Debug.Log("Entro");
+        if (isGazeInteractive)
+        {
+            isBeingActivated = true;
+            Debug.Log("Entro");
+        }
     }
 
     public void GRVOnExit()
     {
-        isBeingActivated = false;
-        Debug.Log("Salgo");
+        if (isGazeInteractive)
+        {
+            isBeingActivated = false;
+            Debug.Log("Salgo");
+        }
+    }
+
+    public void setIsGazeInteractive(bool isGazeInteractive)
+    {
+        this.isGazeInteractive = isGazeInteractive;
+    }
+
+    public void setIsBeingActivated(bool isBeingActivated)
+    {
+        this.isBeingActivated = isBeingActivated;
     }
 }
