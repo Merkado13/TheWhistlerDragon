@@ -1869,10 +1869,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664205, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.554
+      objectReference: {fileID: 0}
     - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: listenerDirectivityAlpha
+      value: 0.319
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: listenerDirectivitySharpness
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: directivityAlpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: directivitySharpness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: occlusionEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: nearFieldEffectEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811511337367664204, guid: ec7951fc337d2ab4984ba2e6377f4768,
+        type: 3}
+      propertyPath: nearFieldEffectGain
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 768516737777929194, guid: ec7951fc337d2ab4984ba2e6377f4768,
         type: 3}

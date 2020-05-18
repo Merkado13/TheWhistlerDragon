@@ -113,6 +113,22 @@ MonoBehaviour:
   target: {fileID: 7005879294936306183, guid: 84122dd2c5a0c0b4db452ce024dcf798, type: 3}
   fireball: {fileID: 3344211665710828698, guid: c225d6d62e1c1fc4a83e20cfd05e0e79,
     type: 3}
+  sound:
+    name: Ay
+    clip: {fileID: 8300000, guid: 45b697df3fc8bf741bb459e888462874, type: 3}
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  sound2:
+    name: 
+    clip: {fileID: 8300000, guid: 42b349fdd2574284d999d94aefda9ff9, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!54 &2063046545733680379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,7 +152,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5768767159816578016}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 248799cb4acba48f7b3ee842a80f788c,
     type: 2}

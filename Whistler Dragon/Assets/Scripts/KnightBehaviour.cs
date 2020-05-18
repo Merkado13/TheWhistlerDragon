@@ -13,6 +13,11 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     [SerializeField]
     private GameObject fireball;
 
+    [SerializeField]
+    private Sound sound;
+    [SerializeField]
+    private Sound sound2;
+
     GUIController controller;
 
 
@@ -26,15 +31,17 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     float death = 0.5f; 
 
     Animator animator;
-    GameObject GUIC;
+    GameObject GUIC;    
+    AudioSource audioSource;
 
-    
+    bool played = false;
+    bool played2 = false; 
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-       
+        animator = GetComponentInChildren<Animator>();        
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -77,11 +84,16 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Fireball(Clone)") {
-
-
+            if (!played)
+            {
+                //audioSource.clip = sound.clip;
+                audioSource.PlayOneShot(sound.clip);
+                played = true;
+            }
             animator.SetBool("dead", true);
             keepGoing = false;
             dead = true;
+            
             collision.gameObject.SetActive(false);
 
         }
@@ -91,7 +103,12 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
             int random = (int)Random.Range(0, 3);
             animator.SetInteger("attack", random);
             //this.gameObject.SetActive(false);
-            controller.UpdateGold(100);
+            controller.UpdateGold(100);            
+            if (!played2)
+            {                
+                audioSource.PlayOneShot(sound2.clip);
+                played2 = true;
+            }
 
         }
 
