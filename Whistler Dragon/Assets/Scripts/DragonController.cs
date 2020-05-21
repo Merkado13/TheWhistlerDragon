@@ -21,7 +21,9 @@ public class DragonController : MonoBehaviour
     private float currentFireAmount = 100.0f;
 
     [SerializeField]
-    private float fireCostPerFireBall = 5;
+    private float fireCostPerFireBallBig = 10;
+    [SerializeField]
+    private float fireCostPerFireBallSmall = 5;
 
     [SerializeField]
     private GUIController controller;
@@ -73,20 +75,24 @@ public class DragonController : MonoBehaviour
 
                 // A single whistle blow ranges from 500 to 5000 Hz
                 float size = 0.41f;
-                if (frequency != 0)
+                if (controls.isInputValid())
                 {
-                    if (micro.isLowPitched())
+                    if (controls.isBigShot())
                     {
-                        size = 2f;
+                        size = 0.8f;
+                        UpdateFireAmount(-fireCostPerFireBallBig);
+
                     }
-                    else if(micro.isHighPitched())
+                    else if (controls.isSmallShot())
                     {
-                        size = 0.41f;
+                        size = 0.4f;
+                        UpdateFireAmount(-fireCostPerFireBallSmall);
+
                     }
                     anim.SetBool("firing", true);
 
-                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
-                    UpdateFireAmount(-fireCostPerFireBall);
+                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position - new Vector3(0, -1f, -0.5f), transform.rotation, new Vector3(size, size, size));
+
                 }
                 else
                 {
@@ -94,7 +100,7 @@ public class DragonController : MonoBehaviour
                 }
 
             }
-            
+
 
             //Debug.Log("FRECUENCIA:" + frequency);
         }
@@ -114,7 +120,7 @@ public class DragonController : MonoBehaviour
 
     private bool hasFireToShot()
     {
-        return currentFireAmount >= fireCostPerFireBall;
+        return currentFireAmount >= 0;
     }
 
 

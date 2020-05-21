@@ -1006,7 +1006,7 @@ MonoBehaviour:
   gameState: {fileID: 287127853}
   resumeButton: {fileID: 377625067}
   restartButton: {fileID: 224210067}
-  buttonMicController: {fileID: 1393122925}
+  buttonMicController: {fileID: 0}
   gold: {fileID: 1348950173}
   texto: {fileID: 2116695288}
   lavalevel: {fileID: 1505684864}
@@ -4364,7 +4364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   micInput: {fileID: 1365324803}
-  usingMic: 1
+  usingMic: 0
 --- !u!114 &831413761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4380,7 +4380,8 @@ MonoBehaviour:
   debug: 1
   rotationSpeed: 100
   fireballsPerSecond: 10
-  fireCostPerFireBall: 5
+  fireCostPerFireBallBig: 10
+  fireCostPerFireBallSmall: 5
   controller: {fileID: 159098087}
   fireAmountPerSecondFromCauldron: 50
   micro: {fileID: 1365324803}

@@ -37,7 +37,7 @@ public class KeyboardControls : MonoBehaviour, IInputedControls
     {
         if (!usingMic)
         {
-            return Input.GetKey(KeyCode.Space);
+            return Input.GetMouseButton(1) || Input.GetMouseButton(0);
         }
         else
         {
@@ -45,4 +45,39 @@ public class KeyboardControls : MonoBehaviour, IInputedControls
         }
     }
 
+    public bool isInputValid()
+    {
+        if (!usingMic)
+        {
+            return true;
+        }
+        else
+        {
+            return micInput.frequency != 0;
+        }
+    }
+
+    public bool isSmallShot()
+    {
+        if (!usingMic)
+        {
+            return Input.GetMouseButton(1);
+        }
+        else
+        {
+            return micInput.isHighPitched();
+        }
+    }
+
+    public bool isBigShot()
+    {
+        if (!usingMic)
+        {
+            return Input.GetMouseButton(0);
+        }
+        else
+        {
+            return micInput.isLowPitched();
+        }
+    }
 }
