@@ -21,7 +21,10 @@ public class DragonController : MonoBehaviour
     private float currentFireAmount = 100.0f;
 
     [SerializeField]
-    private float fireCostPerFireBall = 5;
+    private float fireCostPerFireBallSmall = 5;
+
+    [SerializeField]
+    private float fireCostPerFireBallBig = 10;
 
     [SerializeField]
     private GUIController controller;
@@ -66,7 +69,7 @@ public class DragonController : MonoBehaviour
 
             int frequency = micro.frequency;
 
-            Debug.Log("SHOOOOOt");
+            //Debug.Log("SHOOOOOt");
 
             if (canShoot() && hasFireToShot())
             {
@@ -77,16 +80,20 @@ public class DragonController : MonoBehaviour
                 {
                     if (controls.isBigShot())
                     {
-                        size = 2f;
+                        size = 0.8f;
+                        UpdateFireAmount(-fireCostPerFireBallBig);
+                        
                     }
                     else if(controls.isSmallShot())
                     {
-                        size = 0.41f;
+                        size = 0.4f;
+                        UpdateFireAmount(-fireCostPerFireBallSmall);
+
                     }
                     anim.SetBool("firing", true);
 
-                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
-                    UpdateFireAmount(-fireCostPerFireBall);
+                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position - new Vector3(0, -1f, -0.5f), transform.rotation, new Vector3(size, size, size));
+                    
                 }
                 else
                 {
@@ -114,7 +121,7 @@ public class DragonController : MonoBehaviour
 
     private bool hasFireToShot()
     {
-        return currentFireAmount >= fireCostPerFireBall;
+        return currentFireAmount >= fireCostPerFireBallSmall;
     }
 
 

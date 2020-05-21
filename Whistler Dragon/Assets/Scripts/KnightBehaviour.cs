@@ -36,13 +36,15 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     AudioSource audioSource;
 
     bool played = false;
-    bool played2 = false; 
+    bool played2 = false;
+    ControlSpawn controlSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();        
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
+        controlSpawn = FindObjectOfType<ControlSpawn>();
         
     }
 
@@ -51,6 +53,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     {
         if (controller.playing == false)
         {
+
             this.gameObject.SetActive(false);
         }
         if (keepGoing)
@@ -64,6 +67,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
             deadTime += Time.deltaTime;
 
             if (deadTime > death) {
+                controlSpawn.Dead();
                 this.gameObject.SetActive(false);
             }
 
@@ -76,6 +80,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
             {
                 if (!played2)
                 {
+                    Debug.Log("TocaToca");
                     audioSource.PlayOneShot(sound2.clip);
                     played2 = true;
                 }

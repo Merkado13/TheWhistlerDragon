@@ -71,6 +71,7 @@ public class GUIController : MonoBehaviour
     public void Victory()
     {
         gameState.text = "Victoria";
+        texto.text = "Victoria";
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
     }
