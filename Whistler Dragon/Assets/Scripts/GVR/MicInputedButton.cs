@@ -33,12 +33,10 @@ public class MicInputedButton : MonoBehaviour
             }else if (type == MicInputType.LOW && mic.isLowPitched())
             {
                 button.upLoad();
-                Debug.Log("Vamos con el LOW");
             }
             else
             {
                 button.downLoad();
-                Debug.Log("BAJANDO TODO");
             }
         }
     }
@@ -48,6 +46,7 @@ public class MicInputedButton : MonoBehaviour
         useMic = true;
         //button.setIsBeingActivated(true);
         button.setIsGazeInteractive(false);
+        Debug.Log("Activado");
     }
 
     public void deactivateMicInput()

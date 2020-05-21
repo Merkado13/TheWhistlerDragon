@@ -5,14 +5,15 @@ using UnityEngine;
 public class ButtonMicController : MonoBehaviour
 {
     [SerializeField]
-    private MicInputedButton highInputedButton;
+    private MicInputedButton[] highInputedButton;
 
     [SerializeField]
-    private MicInputedButton lowInputedButton;
+    private MicInputedButton[] lowInputedButton;
 
     [SerializeField]
     private GameObject sliderMic;
 
+    [SerializeField]
     private bool isMicInputed = false;
 
     public void swapInputMode()
@@ -20,13 +21,17 @@ public class ButtonMicController : MonoBehaviour
         isMicInputed = !isMicInputed;
         if (isMicInputed)
         {
-            highInputedButton.activateMicInput();
-            lowInputedButton.activateMicInput();
+            foreach(MicInputedButton buttonH in highInputedButton)
+                buttonH.activateMicInput();
+            foreach (MicInputedButton buttonL in lowInputedButton)
+                buttonL.activateMicInput();
         }
         else{
 
-            highInputedButton.deactivateMicInput();
-            lowInputedButton.deactivateMicInput();
+            foreach (MicInputedButton buttonH in highInputedButton)
+                buttonH.deactivateMicInput();
+            foreach (MicInputedButton buttonL in lowInputedButton)
+                buttonL.deactivateMicInput();
         }
 
         sliderMic.SetActive(isMicInputed);

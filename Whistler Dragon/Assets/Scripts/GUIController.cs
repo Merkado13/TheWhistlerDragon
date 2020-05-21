@@ -22,10 +22,8 @@ public class GUIController : MonoBehaviour
     [SerializeField]
     private GameObject restartButton;
 
-
     private int current_gold = 1000;
     
-
     public Text gold;   
     public Text texto;
 
@@ -72,7 +70,7 @@ public class GUIController : MonoBehaviour
 
     public void Victory()
     {
-        gameState.text = "GameOver";
+        gameState.text = "Victoria";
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
     }
@@ -81,6 +79,7 @@ public class GUIController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public void UpdateGold(int g)
     {
         current_gold = current_gold - g;
@@ -93,12 +92,5 @@ public class GUIController : MonoBehaviour
 
         }
     }
-
-    public void Victory() {
-
-        texto.text = "VICTORY";
-        playing = false;
-    }
-
 
 }

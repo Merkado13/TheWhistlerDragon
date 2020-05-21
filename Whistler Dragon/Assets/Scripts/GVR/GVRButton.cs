@@ -49,7 +49,6 @@ public class GVRButton : MonoBehaviour
         currentLoading += Time.deltaTime;
         if (currentLoading >= timeNeeded && !alreadyActivated)
         {
-            alreadyActivated = true;
             currentLoading = 0.0f;
             isBeingActivated = false;
             alreadyActivated = false;
