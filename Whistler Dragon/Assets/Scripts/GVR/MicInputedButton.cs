@@ -13,12 +13,10 @@ public class MicInputedButton : MonoBehaviour
     [SerializeField]
     private MicrophoneInput mic;
     private bool useMic = false;
+
+    [SerializeField]
     private GVRButton button;
 
-    private void Awake()
-    {
-        button = GetComponent<GVRButton>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +42,6 @@ public class MicInputedButton : MonoBehaviour
     public void activateMicInput()
     {
         useMic = true;
-        //button.setIsBeingActivated(true);
         button.setIsGazeInteractive(false);
         Debug.Log("Activado");
     }
@@ -52,8 +49,6 @@ public class MicInputedButton : MonoBehaviour
     public void deactivateMicInput()
     {
         useMic = false;
-        //button.setIsBeingActivated(false);
         button.setIsGazeInteractive(true);
-
     }
 }
