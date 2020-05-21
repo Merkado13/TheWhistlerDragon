@@ -13,12 +13,18 @@ public class GUIController : MonoBehaviour
 
     [SerializeField]
     private int current_gold = 1000;
-    public Text gold;
-    [SerializeField]
-    public GameObject gameOver;
+    
+
+    public Text gold;   
+    public Text texto;
+
+    public Image lavalevel; 
+
     public bool playing = true;
     public void UpdateFireBar(float xScale)
     {
+        lavalevel.fillAmount = xScale;
+
         fireBar.transform.localScale = new Vector3(xScale, 1, 1);
     }
 
@@ -33,9 +39,17 @@ public class GUIController : MonoBehaviour
         Debug.Log("current gold: " + current_gold);
         if (current_gold <= 0)
         {
-            gameOver.SetActive(true);
+            texto.text = "GAME OVER";
             playing = false;
 
         }
     }
+
+    public void Victory() {
+
+        texto.text = "VICTORY";
+        playing = false;
+    }
+
+
 }

@@ -28,6 +28,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     bool dead = false;
 
     float deadTime = 0;
+    float moneyTime = 0.4f;
     float death = 0.5f; 
 
     Animator animator;
@@ -42,6 +43,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     {
         animator = GetComponentInChildren<Animator>();        
         audioSource = GetComponent<AudioSource>(); 
+        
     }
 
     // Update is called once per frame
@@ -70,11 +72,20 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
 
             alive += Time.deltaTime;
 
-            if (alive > keepAlive)
+            if (alive > moneyTime)
             {
-                this.gameObject.SetActive(false);
-            }
+                if (!played2)
+                {
+                    audioSource.PlayOneShot(sound2.clip);
+                    played2 = true;
+                }
+                if (alive > keepAlive)
+                {
+                    controller.UpdateGold(100);
 
+                    this.gameObject.SetActive(false);
+                }
+            }
 
 
         }
@@ -103,12 +114,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
             int random = (int)Random.Range(0, 3);
             animator.SetInteger("attack", random);
             //this.gameObject.SetActive(false);
-            controller.UpdateGold(100);            
-            if (!played2)
-            {                
-                audioSource.PlayOneShot(sound2.clip);
-                played2 = true;
-            }
+           
 
         }
 

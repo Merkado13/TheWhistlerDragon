@@ -122,7 +122,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   sound2:
-    name: 
+    name: Money
     clip: {fileID: 8300000, guid: 42b349fdd2574284d999d94aefda9ff9, type: 3}
     volume: 0
     pitch: 0
