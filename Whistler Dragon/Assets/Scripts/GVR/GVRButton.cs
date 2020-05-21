@@ -23,8 +23,6 @@ public class GVRButton : MonoBehaviour
 
     private bool alreadyActivated = false;
 
-    private float loadSpeed = 1.0f / 30.0f;
-
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +46,7 @@ public class GVRButton : MonoBehaviour
     public void upLoad()
     {
         //isBeingActivated = true;
-        currentLoading += loadSpeed;
+        currentLoading += Time.deltaTime;
         if (currentLoading >= timeNeeded && !alreadyActivated)
         {
             currentLoading = 0.0f;
@@ -60,7 +58,7 @@ public class GVRButton : MonoBehaviour
 
     public void downLoad()
     {
-        currentLoading -= loadSpeed * loadDownSpeed;
+        currentLoading -= Time.deltaTime * loadDownSpeed;
         if(currentLoading/timeNeeded < 0.75f)
         {
             alreadyActivated = false;

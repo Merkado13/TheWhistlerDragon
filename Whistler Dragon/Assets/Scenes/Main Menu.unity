@@ -359,7 +359,6 @@ MonoBehaviour:
   gameState: {fileID: 0}
   resumeButton: {fileID: 0}
   restartButton: {fileID: 0}
-  buttonMicController: {fileID: 5162142956127787526}
   gold: {fileID: 0}
   texto: {fileID: 0}
   lavalevel: {fileID: 0}
@@ -527,50 +526,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344006134}
   m_CullTransparentMesh: 0
---- !u!1 &468793301
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 468793303}
-  - component: {fileID: 468793302}
-  m_Layer: 0
-  m_Name: InputSelection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &468793302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468793301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde9526ec461d3348a76a70887cfd769, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GazeInputed: 1
---- !u!4 &468793303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468793301}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.219566, y: 0.15808105, z: -9.465515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517230291
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,18 +805,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 537968188}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &887011687 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8397057587489748661, guid: a3f60900e8c2da846824c7e6301abb06,
-    type: 3}
-  m_PrefabInstance: {fileID: 2072335032}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f53701288c5a94099c026ea3946078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &991987985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,18 +967,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6bc4209d2f4b140acae1b612a47adb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1323964566 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8397057587489748661, guid: a3f60900e8c2da846824c7e6301abb06,
-    type: 3}
-  m_PrefabInstance: {fileID: 8397057586987061195}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f53701288c5a94099c026ea3946078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1370184340
@@ -2012,11 +1943,6 @@ PrefabInstance:
       propertyPath: mic
       value: 
       objectReference: {fileID: 1152237383}
-    - target: {fileID: 8397057587489748555, guid: a3f60900e8c2da846824c7e6301abb06,
-        type: 3}
-      propertyPath: button
-      value: 
-      objectReference: {fileID: 887011687}
     - target: {fileID: 2065184132062175439, guid: a3f60900e8c2da846824c7e6301abb06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2163,41 +2089,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: highInputedButton.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: lowInputedButton.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: highInputedButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: sliderMic
-      value: 
-      objectReference: {fileID: 29645981}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: lowInputedButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: highInputedButton.Array.data[0]
-      value: 
-      objectReference: {fileID: 571472256}
-    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: lowInputedButton.Array.data[0]
-      value: 
-      objectReference: {fileID: 208146219}
     - target: {fileID: 5162142957308819238, guid: 8350ac2e9f6424741b51764f017121b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2303,35 +2194,48 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5162142957308819234, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: GVRClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5162142956127787526}
-    - target: {fileID: 5162142957308819234, guid: 8350ac2e9f6424741b51764f017121b5,
-        type: 3}
-      propertyPath: GVRClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwapInputMode
-      objectReference: {fileID: 0}
     - target: {fileID: 5162142957024170322, guid: 8350ac2e9f6424741b51764f017121b5,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: highInputedButton.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: lowInputedButton.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: highInputedButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: sliderMic
+      value: 
+      objectReference: {fileID: 29645981}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: lowInputedButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: highInputedButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 571472256}
+    - target: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
+        type: 3}
+      propertyPath: lowInputedButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 208146219}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8350ac2e9f6424741b51764f017121b5, type: 3}
---- !u!114 &5162142956127787526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5162142957308819245, guid: 8350ac2e9f6424741b51764f017121b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 5162142956127787525}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dacbfa372d7abe49835bf4fe97ed78e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8397057586987061195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2349,11 +2253,6 @@ PrefabInstance:
       propertyPath: mic
       value: 
       objectReference: {fileID: 1152237383}
-    - target: {fileID: 8397057587489748555, guid: a3f60900e8c2da846824c7e6301abb06,
-        type: 3}
-      propertyPath: button
-      value: 
-      objectReference: {fileID: 1323964566}
     - target: {fileID: 2065184132062175439, guid: a3f60900e8c2da846824c7e6301abb06,
         type: 3}
       propertyPath: m_LocalPosition.x
