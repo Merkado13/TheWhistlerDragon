@@ -22,9 +22,6 @@ public class GUIController : MonoBehaviour
     [SerializeField]
     private GameObject restartButton;
 
-    [SerializeField]
-    private ButtonMicController buttonMicController;
-
     private int current_gold = 1000;
     
     public Text gold;   
@@ -33,23 +30,6 @@ public class GUIController : MonoBehaviour
     public Image lavalevel; 
 
     public bool playing = true;
-
-
-    private InputSelection selection;
-    private bool alreadyApliedInputSelection = false;
-
-    public void Start()
-    {
-        GameObject inputSelected = GameObject.Find("InputSelection");
-        if (inputSelected)
-        {
-            selection = inputSelected.GetComponent<InputSelection>();
-            if (!selection.GazeInputed)
-            {
-                buttonMicController.ActiveDeactiveMicInput(true);
-            }
-        }
-    }
 
     public void UpdateFireBar(float xScale)
     {
@@ -65,57 +45,40 @@ public class GUIController : MonoBehaviour
 
     public void GoToScene(string scene)
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
 
     public void ActivatePauseMenu()
     {
-        Time.timeScale = 0;
         gameState.text = "Pausa";
         menuPanel.SetActive(true);
         resumeButton.SetActive(true);
         restartButton.SetActive(false);
-        AplyInpuSelection();
     }
 
     public void DeactivatePauseMenu()
     {
-        Time.timeScale = 1;
         menuPanel.SetActive(false);
     }
 
     public void GameOver()
     {
-        Time.timeScale = 1;
         gameState.text = "Derrota";
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
-        AplyInpuSelection();
     }
 
     public void Victory()
     {
-        Time.timeScale = 1;
         gameState.text = "Victoria";
         texto.text = "Victoria";
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
-        AplyInpuSelection();
     }
 
     public void ReloadScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    private void AplyInpuSelection()
-    {
-        if (selection)
-        {
-            buttonMicController.ActiveDeactiveMicInput(!selection.GazeInputed);
-        }
     }
 
     public void UpdateGold(int g)

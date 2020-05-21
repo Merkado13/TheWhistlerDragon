@@ -13,42 +13,27 @@ public class ButtonMicController : MonoBehaviour
     [SerializeField]
     private GameObject sliderMic;
 
-    private InputSelection selected;
+    [SerializeField]
+    private bool isMicInputed = false;
 
-    private void Start()
+    public void swapInputMode()
     {
-        GameObject inputSelected = GameObject.Find("InputSelection");
-        if (inputSelected)
+        isMicInputed = !isMicInputed;
+        if (isMicInputed)
         {
-            selected = inputSelected.GetComponent<InputSelection>();
-
-        }
-
-    }
-
-    public void SwapInputMode()
-    {
-        selected.GazeInputed = !selected.GazeInputed;
-        ActiveDeactiveMicInput(!selected.GazeInputed);
-    }
-
-    public void ActiveDeactiveMicInput(bool micInputed)
-    {
-        if (micInputed)
-        {
-            foreach (MicInputedButton buttonH in highInputedButton)
+            foreach(MicInputedButton buttonH in highInputedButton)
                 buttonH.activateMicInput();
             foreach (MicInputedButton buttonL in lowInputedButton)
                 buttonL.activateMicInput();
         }
-        else
-        {
+        else{
+
             foreach (MicInputedButton buttonH in highInputedButton)
                 buttonH.deactivateMicInput();
             foreach (MicInputedButton buttonL in lowInputedButton)
                 buttonL.deactivateMicInput();
         }
 
-        sliderMic.SetActive(micInputed);
+        sliderMic.SetActive(isMicInputed);
     }
 }
