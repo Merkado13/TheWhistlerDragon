@@ -24,6 +24,9 @@ public class MicrophoneInput : MonoBehaviour
     //8 bandas de frecuencia
     private float[] frequencyBands = new float[8];
 
+    public float highTreeshold = 2000;
+    public float lowTreeshold = 2000;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -97,9 +100,8 @@ public class MicrophoneInput : MonoBehaviour
             var dL = spectrum[maxN - 1] / spectrum[maxN];
             var dR = spectrum[maxN + 1] / spectrum[maxN];
             freqN += 0.5f * (dR * dR - dL * dL);
-
-
         }
+
         float pitchValue = freqN * (44100) / windowF;
 
         return pitchValue;
@@ -122,6 +124,17 @@ public class MicrophoneInput : MonoBehaviour
         }
     }
 
+    public bool isHighPitched()
+    {
+        return frequency >= highTreeshold && frequency != 0;
+    }
+
+    public bool isLowPitched()
+    {
+        return frequency < highTreeshold && frequency > 1000;
+    }
+
+
     //get data from microphone into audioclip
     float MicrophoneLevelMaxDecibels()
     {
@@ -141,7 +154,8 @@ public class MicrophoneInput : MonoBehaviour
         //DecibelsOfClip(_clipRecord);
         // Frequency = _recordedClip.frequency;
         frequency = (int)getMicrophoneFrecuency();
-        controller.UpdateMicSlider(MicLoudness);
+        if(controller)
+            controller.UpdateMicSlider(frequency);
     }
 
     bool _isInitialized;
