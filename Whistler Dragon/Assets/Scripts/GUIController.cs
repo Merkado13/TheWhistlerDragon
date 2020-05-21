@@ -98,6 +98,7 @@ public class GUIController : MonoBehaviour
     {
         Time.timeScale = 1;
         gameState.text = "Victoria";
+        texto.text = "Victoria";
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();

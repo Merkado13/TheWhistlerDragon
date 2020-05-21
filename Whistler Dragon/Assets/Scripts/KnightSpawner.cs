@@ -12,12 +12,14 @@ public class KnightSpawner : MonoBehaviour
     private float knightsPerSec = 0.6f;
     private float lastTimeSpawn = 0;
 
-    private int totalSpawns = 30;
-    private int spawns = 0;
+    
     [SerializeField]
     GUIController controller;
 
+    [SerializeField]
+    ControlSpawn controlSpawn;
 
+    int spawns = 0; 
 
     // Start is called before the first frame update
     void Start()
@@ -37,14 +39,14 @@ public class KnightSpawner : MonoBehaviour
 
     private bool canSpawn()
     {
-        float currentTime = Time.time;
-        if (spawns > totalSpawns)
+
+        if (spawns>= controlSpawn.getMaxSpawns())
         {
+            return false; 
+        }
 
-            controller.Victory();
-
-        }        
-        else if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
+       float currentTime = Time.time;
+       if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
         {
             lastTimeSpawn = currentTime;
             return true;
