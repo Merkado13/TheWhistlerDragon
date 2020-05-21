@@ -66,6 +66,8 @@ public class DragonController : MonoBehaviour
 
             int frequency = micro.frequency;
 
+            Debug.Log("SHOOOOOt");
+
             if (canShoot() && hasFireToShot())
             {
 
@@ -82,22 +84,14 @@ public class DragonController : MonoBehaviour
                         size = 0.41f;
                     }
                     anim.SetBool("firing", true);
+
+                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
+                    UpdateFireAmount(-fireCostPerFireBall);
                 }
                 else
                 {
-                    size = 0.41f;
                     anim.SetBool("firing", false);
                 }
-                /*else
-                {
-                    size = ((frequency * 200) / 4000) / 100; // Trust me i'm a scientist (no)
-                }*/
-
-
-                ObjectPooler.Instance.SpawnFromPool("fireball", transform.position, transform.rotation, new Vector3(size, size, size));
-                UpdateFireAmount(-fireCostPerFireBall);
-                
-                
 
             }
             
