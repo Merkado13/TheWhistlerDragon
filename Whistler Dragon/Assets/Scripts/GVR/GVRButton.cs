@@ -50,6 +50,9 @@ public class GVRButton : MonoBehaviour
         if (currentLoading >= timeNeeded && !alreadyActivated)
         {
             alreadyActivated = true;
+            currentLoading = 0.0f;
+            isBeingActivated = false;
+            alreadyActivated = false;
             GVRClick.Invoke();
         }
     }

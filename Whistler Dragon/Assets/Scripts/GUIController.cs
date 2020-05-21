@@ -63,4 +63,9 @@ public class GUIController : MonoBehaviour
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
