@@ -4347,7 +4347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   micInput: {fileID: 1365324803}
-  usingMic: 1
+  usingMic: 0
 --- !u!114 &831413761
 MonoBehaviour:
   m_ObjectHideFlags: 0
