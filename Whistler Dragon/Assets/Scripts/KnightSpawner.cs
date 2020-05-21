@@ -12,6 +12,13 @@ public class KnightSpawner : MonoBehaviour
     private float knightsPerSec = 0.6f;
     private float lastTimeSpawn = 0;
 
+    private int totalSpawns = 30;
+    private int spawns = 0;
+    [SerializeField]
+    GUIController controller;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +28,29 @@ public class KnightSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnKnights();
+        if (controller.playing == true)
+        {
+            SpawnKnights();
+        }
+        
     }
 
     private bool canSpawn()
     {
         float currentTime = Time.time;
-        if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
+        if (spawns > totalSpawns)
+        {
+
+            controller.Victory();
+
+        }        
+        else if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
         {
             lastTimeSpawn = currentTime;
             return true;
         }
 
+        
         return false;
     }
 
@@ -66,6 +84,7 @@ public class KnightSpawner : MonoBehaviour
 
 
             ObjectPooler.Instance.SpawnFromPool(knight, spawn.position, spawn.rotation);
+            spawns++; 
         }
 
     }
