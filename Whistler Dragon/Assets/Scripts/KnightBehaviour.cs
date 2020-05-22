@@ -83,7 +83,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
                 if (alive > keepAlive)
                 {
                     controller.UpdateGold(100);
-                    
+                    spawnController.Dead();
                     this.gameObject.SetActive(false);
                 }
             }

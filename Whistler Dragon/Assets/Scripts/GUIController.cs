@@ -60,7 +60,8 @@ public class GUIController : MonoBehaviour
 
     public void UpdateMicSlider(float micVolume)
     {
-        micSlider.value = micVolume / 3000;
+        if (micSlider != null) 
+            micSlider.value = micVolume / 3000;
     }
 
     public void GoToScene(string scene)
