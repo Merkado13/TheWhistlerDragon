@@ -87,9 +87,12 @@ public class GUIController : MonoBehaviour
 
     public void GameOver()
     {
+
+
+        ActivatePauseMenu();
         Time.timeScale = 1;
-        gameState.text = "Derrota";
-        texto.text = "Derrota";
+        //gameState.text = "Derrota";
+        texto.text = "Derrota";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();
@@ -98,10 +101,9 @@ public class GUIController : MonoBehaviour
     public void Victory()
     {
         texto.text = "Victoria";
-
+        ActivatePauseMenu();
         Time.timeScale = 1;
-        gameState.text = "Victoria";
-       
+        //gameState.text = "Victoria";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();

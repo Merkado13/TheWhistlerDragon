@@ -1181,7 +1181,7 @@ MonoBehaviour:
   gameState: {fileID: 287127853}
   resumeButton: {fileID: 377625067}
   restartButton: {fileID: 224210067}
-  buttonMicController: {fileID: 0}
+  buttonMicController: {fileID: 1393122925}
   gold: {fileID: 1348950173}
   texto: {fileID: 2134940444}
   lavalevel: {fileID: 1505684864}
@@ -4013,6 +4013,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 751847490}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &639765638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639765640}
+  - component: {fileID: 639765639}
+  m_Layer: 0
+  m_Name: InputSelection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &639765639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639765638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde9526ec461d3348a76a70887cfd769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GazeInputed: 1
+--- !u!4 &639765640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639765638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.219566, y: 0.15808105, z: -9.465515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &642999364
 GameObject:
