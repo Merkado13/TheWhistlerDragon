@@ -19,8 +19,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     private Sound sound2;
 
     GUIController controller;
-
-
+    SpawnController spawnController; 
 
     bool keepGoing = true;
     float keepAlive = 3;
@@ -42,7 +41,8 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
     void Start()
     {
         animator = GetComponentInChildren<Animator>();        
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
+        spawnController = FindObjectOfType<SpawnController>();
         
     }
 
@@ -64,6 +64,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
             deadTime += Time.deltaTime;
 
             if (deadTime > death) {
+                spawnController.Dead();
                 this.gameObject.SetActive(false);
             }
 
@@ -82,7 +83,7 @@ public class KnightBehaviour : MonoBehaviour, IPooledObject
                 if (alive > keepAlive)
                 {
                     controller.UpdateGold(100);
-
+                    
                     this.gameObject.SetActive(false);
                 }
             }

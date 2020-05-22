@@ -68,7 +68,7 @@ public class DragonController : MonoBehaviour
 
             int frequency = micro.frequency;
 
-            Debug.Log("SHOOOOOt");
+            //Debug.Log("SHOOOOOt");
 
             if (canShoot() && hasFireToShot())
             {

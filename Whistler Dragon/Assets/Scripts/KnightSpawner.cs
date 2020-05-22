@@ -16,7 +16,8 @@ public class KnightSpawner : MonoBehaviour
     private int spawns = 0;
     [SerializeField]
     GUIController controller;
-
+    [SerializeField]
+    SpawnController spawnController; 
 
 
     // Start is called before the first frame update
@@ -38,10 +39,10 @@ public class KnightSpawner : MonoBehaviour
     private bool canSpawn()
     {
         float currentTime = Time.time;
-        if (spawns > totalSpawns)
+        if (spawns >= spawnController.getMaxSpawns())
         {
-
-            controller.Victory();
+            
+            return false;
 
         }        
         else if (1 / knightsPerSec <= currentTime - lastTimeSpawn)
