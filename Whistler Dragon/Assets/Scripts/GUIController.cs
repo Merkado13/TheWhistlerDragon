@@ -73,7 +73,7 @@ public class GUIController : MonoBehaviour
     public void ActivatePauseMenu()
     {
         Time.timeScale = 0;
-        gameState.text = "Pausa";
+        gameState.text = "PAUSA";
         menuPanel.SetActive(true);
         resumeButton.SetActive(true);
         restartButton.SetActive(false);
@@ -89,7 +89,7 @@ public class GUIController : MonoBehaviour
     public void GameOver()
     {
         menuPanel.SetActive(true);
-        gameState.text = "Derrota";        
+        gameState.text = "DERROTA";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();
@@ -98,7 +98,7 @@ public class GUIController : MonoBehaviour
     public void Victory()
     {
         menuPanel.SetActive(true);
-        gameState.text = "Victoria";        
+        gameState.text = "VICTORIA";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();

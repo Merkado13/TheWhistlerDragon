@@ -97,14 +97,14 @@ public class DragonController : MonoBehaviour
                                                                     , transform.rotation, new Vector3(size, size, size));
 
                 }
-                else
-                {
-                    anim.SetBool("firing", false);
-                }
+                
 
             }
 
-
+            else
+            {
+                anim.SetBool("firing", false);
+            }
             //Debug.Log("FRECUENCIA:" + frequency);
         }
     }
