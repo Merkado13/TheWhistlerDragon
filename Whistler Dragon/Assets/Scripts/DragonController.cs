@@ -36,7 +36,9 @@ public class DragonController : MonoBehaviour
 
     private float raycastMaxDistance = 10;
 
-    Animator anim; 
+    Animator anim;
+
+    private float offsetSpawnFireball = 2f;
 
 
     private void Awake()
@@ -91,7 +93,8 @@ public class DragonController : MonoBehaviour
                     }
                     anim.SetBool("firing", true);
 
-                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position - new Vector3(0, -1f, -0.5f), transform.rotation, new Vector3(size, size, size));
+                    ObjectPooler.Instance.SpawnFromPool("fireball", transform.position + transform.forward * offsetSpawnFireball + Vector3.up/4
+                                                                    , transform.rotation, new Vector3(size, size, size));
 
                 }
                 else
@@ -120,7 +123,7 @@ public class DragonController : MonoBehaviour
 
     private bool hasFireToShot()
     {
-        return currentFireAmount >= 0;
+        return currentFireAmount > 0;
     }
 
 

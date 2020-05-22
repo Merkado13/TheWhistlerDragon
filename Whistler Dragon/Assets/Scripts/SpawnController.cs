@@ -24,10 +24,10 @@ public class SpawnController : MonoBehaviour
         if (spawnsLeft <= 0) {
            
             controller.Victory();
+            Debug.Log("VICOTRIOOOO!");
                 
         }
-        
-        
+             
     }
 
     public void Dead() {

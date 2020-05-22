@@ -87,12 +87,8 @@ public class GUIController : MonoBehaviour
 
     public void GameOver()
     {
-
-
-        ActivatePauseMenu();
-        Time.timeScale = 1;
-        gameState.text = "";
-        texto.text = "Derrota";        
+        menuPanel.SetActive(true);
+        gameState.text = "Derrota";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();
@@ -100,10 +96,8 @@ public class GUIController : MonoBehaviour
 
     public void Victory()
     {
-        texto.text = "Victoria";
-        ActivatePauseMenu();
-        Time.timeScale = 1;
-        gameState.text = "";        
+        menuPanel.SetActive(true);
+        gameState.text = "Victoria";        
         resumeButton.SetActive(false);
         restartButton.SetActive(true);
         AplyInpuSelection();
@@ -130,7 +124,7 @@ public class GUIController : MonoBehaviour
         Debug.Log("current gold: " + current_gold);
         if (current_gold <= 0)
         {
-            texto.text = "GAME OVER";
+            GameOver();
             playing = false;
 
         }
