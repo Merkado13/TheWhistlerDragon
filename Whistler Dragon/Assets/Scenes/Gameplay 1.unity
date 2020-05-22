@@ -4470,12 +4470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7929fa5e730414cb1f18134aef71c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftWall: 0
-  rightWall: 0
-  floor: 8
-  ceiling: 8
-  backWall: 0
-  frontWall: 0
+  leftWall: 12
+  rightWall: 12
+  floor: 12
+  ceiling: 0
+  backWall: 10
+  frontWall: 12
   reflectivity: 0.364
   reverbGainDb: -0.3
   reverbBrightness: -0
