@@ -493,7 +493,7 @@ RectTransform:
   m_Children:
   - {fileID: 675528070}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -787,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0b52bd3d66226404d943d404e9141dc5, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0b52bd3d66226404d943d404e9141dc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1358,7 +1358,7 @@ Transform:
   - {fileID: 506296813}
   - {fileID: 971436085}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &176828930
 PrefabInstance:
@@ -1713,7 +1713,7 @@ Transform:
   - {fileID: 1681021695}
   - {fileID: 578855344}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &264800906
 PrefabInstance:
@@ -4108,7 +4108,7 @@ Transform:
   - {fileID: 933524208}
   - {fileID: 30738406}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657405910
 GameObject:
@@ -4673,7 +4673,7 @@ RectTransform:
   m_Children:
   - {fileID: 1477904324}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4873,7 +4873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 766346198, guid: 463285ecd6702471a909ba810832bf0e, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 766346198, guid: 463285ecd6702471a909ba810832bf0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5009,7 +5009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ff57abc1d3a56814f8b9863d2caad4ad, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ff57abc1d3a56814f8b9863d2caad4ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7942,7 +7942,7 @@ Transform:
   - {fileID: 1851115307}
   - {fileID: 378768099}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1161642791
 GameObject:
@@ -11269,7 +11269,7 @@ Transform:
   - {fileID: 1340279938}
   - {fileID: 224628551}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 92.83401, z: 0}
 --- !u!1 &1681021694
 GameObject:
@@ -11615,7 +11615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 1053104be8dbcc644abcb0fc9cadd156, type: 3}
       propertyPath: m_Name
-      value: uploads_files_1897304_romanCoinStack_v001
+      value: Monedas
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 1053104be8dbcc644abcb0fc9cadd156, type: 3}
       propertyPath: m_IsActive
@@ -11671,7 +11671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1053104be8dbcc644abcb0fc9cadd156, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1053104be8dbcc644abcb0fc9cadd156, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12831,7 +12831,7 @@ RectTransform:
   - {fileID: 521022961}
   - {fileID: 2134940442}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
